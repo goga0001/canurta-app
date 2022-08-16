@@ -77,3 +77,21 @@ with st.sidebar:
 if len(dropdown)>0:
     df= int(dropdown)(start, end) ["Adj Close"]
     st.line_chart(df)
+
+
+###################### Gurkamal #####################################
+#####################################################################
+
+###################### Changing dataframe datatypes #################
+
+canurta_df = pd.read_json('canurta_dashboard.json')
+canurta_df = canurta_df.T
+#canurta_df.index = canurta_df['date']
+#canurta_df = canurta_df.drop(['date'], axis=1)
+canurta_df.iloc[:, 1:8] = canurta_df.iloc[:, 1:8].astype('float')
+canurta_df.iloc[:, 8:10] = canurta_df.iloc[:, 8:10].astype('int')
+canurta_df['skin_temp'] = canurta_df['skin_temp'].astype('float')
+canurta_df.iloc[:, 12:15] = canurta_df.iloc[:, 12:15].astype('int')
+canurta_df['date'] = canurta_df['date'].astype('datetime64')
+
+st.write(canurta_df.head(5))

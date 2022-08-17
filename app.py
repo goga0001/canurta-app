@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import plost
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="App Dashboard",page_icon=":four_leaf_clover:",layout="wide")
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -65,28 +65,33 @@ with c2:
         color='company')
 
 
-st.dataframe(df)
+
 #sidebar
-with st.sidebar:
+############Gaukhar#############
+app_df= pd.read_excel(
+    io="Book1.xlsx",
+    engine="openpyxl",
+    skiprows=0,
+    usecols="B:R",
+    nrows=1000,
+)
+canurta_df = pd.read_json('canurta_dashboard.json')
+
+if len(dropdown)>0:
+    app_df= (dropdown)(start, end) ["Adj Close"]
+    st.line_chart(app_df)
+
+#with st.sidebar:
     st.sidebar.header("Please Filter Here:")
     biomarkers = ("trail","crp","il6","tgfb","tgfa","il8","ip10")
     dropdown= st.multiselect("Pick your biomarker", biomarkers)
     start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
     end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
+####
 
-if len(dropdown)>0:
-    canurta_df= int(dropdown)(start, end) ["Adj Close"]
-    st.line_chart(df)
 
-ds= pd.read_excel(
-    io="data.xlsx",
-    engine="openpyxl",
-    sheet_name="Data",
-    skiprows=0,
-    usecols="B:R",
-    nrows=1000,
-)
-print(ds)
+
+
 ###################### Gurkamal #####################################
 #####################################################################
 
@@ -103,13 +108,6 @@ canurta_df.iloc[:, 12:15] = canurta_df.iloc[:, 12:15].astype('int')
 canurta_df['date'] = canurta_df['date'].astype('datetime64')
 
 st.write(canurta_df.head(5))
-
-
-####Helia####
-header = st.container()
-dataset = st.container()
-with header:
-    st.title("Welcome back!")
 
 
 ############################# Helia ######################################

@@ -95,3 +95,24 @@ canurta_df.iloc[:, 12:15] = canurta_df.iloc[:, 12:15].astype('int')
 canurta_df['date'] = canurta_df['date'].astype('datetime64')
 
 st.write(canurta_df.head(5))
+
+
+############################# Helia ######################################
+##########################################################################
+
+#practice file with sample plot for RHR using json data
+import streamlit as st
+import pandas as pd
+
+header = st.container()
+dataset = st.container()
+
+with header:
+    st.title("Welcome back!")
+
+with dataset:
+    canurta_df = pd.read_json('canurta_dashboard.json')
+    canurta_df_transposed = canurta_df.T
+    st.write(canurta_df_transposed.head())
+    rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
+    st.bar_chart(rhr)

@@ -75,10 +75,18 @@ with st.sidebar:
     end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
 
 if len(dropdown)>0:
-    df= int(dropdown)(start, end) ["Adj Close"]
+    canurta_df= int(dropdown)(start, end) ["Adj Close"]
     st.line_chart(df)
 
-
+ds= pd.read_excel(
+    io="data.xlsx",
+    engine="openpyxl",
+    sheet_name="Data",
+    skiprows=0,
+    usecols="B:R",
+    nrows=1000,
+)
+print(ds)
 ###################### Gurkamal #####################################
 #####################################################################
 
@@ -95,3 +103,16 @@ canurta_df.iloc[:, 12:15] = canurta_df.iloc[:, 12:15].astype('int')
 canurta_df['date'] = canurta_df['date'].astype('datetime64')
 
 st.write(canurta_df.head(5))
+
+####Helia####
+header = st.container()
+dataset = st.container()
+with header:
+    st.title("Welcome back!")
+with dataset:
+    canurta_df = pd.read_json('canurta_dashboard.json')
+    canurta_df_transposed = canurta_df.T
+    st.write(canurta_df_transposed.head())
+    rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
+    st.bar_chart(rhr)
+####

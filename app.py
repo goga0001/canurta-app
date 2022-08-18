@@ -134,13 +134,13 @@ header = st.container()
 dataset = st.container()
 
 with header:
-    st.title("Welcome back!")
+   # st.title("Welcome back!")
 
 
 with dataset:
     canurta_df = pd.read_json('canurta_dashboard.json')
     canurta_df_transposed = canurta_df.T
-    st.write(canurta_df_transposed.head())
+    #st.write(canurta_df_transposed.head())
     rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
     st.bar_chart(rhr)
 

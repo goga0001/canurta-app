@@ -5,3 +5,4 @@ pandas
 plost
 altair
 openpyxl
+seaborn

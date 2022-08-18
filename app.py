@@ -75,17 +75,34 @@ st.line_chart(data)
 
 ###################### Changing dataframe datatypes #################
 
-canurta_df = pd.read_json('canurta_dashboard.json')
-canurta_df = canurta_df.T
-#canurta_df.index = canurta_df['date']
-#canurta_df = canurta_df.drop(['date'], axis=1)
-canurta_df.iloc[:, 1:8] = canurta_df.iloc[:, 1:8].astype('float')
-canurta_df.iloc[:, 8:10] = canurta_df.iloc[:, 8:10].astype('int')
-canurta_df['skin_temp'] = canurta_df['skin_temp'].astype('float')
-canurta_df.iloc[:, 12:15] = canurta_df.iloc[:, 12:15].astype('int')
-canurta_df['date'] = canurta_df['date'].astype('datetime64')
+import seaborn as sns
 
-st.write(canurta_df.head(5))
+def import_json(json_file):
+    df = pd.read_json(json_file)
+    df =df.T
+    df.iloc[:, 1:8] = df.iloc[:, 1:8].astype('float')
+    df.iloc[:, 8:10] = df.iloc[:, 8:10].astype('int')
+    df['skin_temp'] = df['skin_temp'].astype('float')
+    df.iloc[:, 12:15] = df.iloc[:, 12:15].astype('int')
+    df['date'] = df['date'].astype('datetime64')
+
+    return df
+
+# import json as df
+df = import_json('canurta_dashboard.json')
+
+#subset data into biomarkers with similar ranges
+dfx = df.iloc[:,0:8]
+df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
+df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
+
+sns.set_style("darkgrid")
+sns.lineplot(data = canurta_df_p1)
+
+sns.set_style("darkgrid")
+sns.lineplot(data = canurta_df_b2)
+
+st.write(df.head(5))
 
 
 

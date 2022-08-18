@@ -120,11 +120,5 @@ st.write(df.head(5))
 #practice file with sample plot for RHR using json data
 
 
-with dataset:
-    canurta_df = pd.read_json('canurta_dashboard.json')
-    canurta_df_transposed = canurta_df.T
-    st.write(canurta_df_transposed.head())
-    rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
-    st.bar_chart(rhr)
 
 

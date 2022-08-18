@@ -22,7 +22,7 @@ df= pd.read_csv('https://raw.githubusercontent.com/goga0001/canurta/main/Untitle
 stocks = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/stocks_toy.csv')
     
 #load assets
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_5njp3vgg.json")
+lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_l13zwx3i.json")
 # ---- HEADER SECTION ----
 #heading
 c1, c2, c3 = st.columns((5,2,1))

@@ -64,29 +64,28 @@ with c2:
         theta='q2',
         color='company')
 
+#sidebar    "trail","crp","il6","tgfb","tgfa","il8","ip10"
+canurta_df = pd.read_json('canurta_dashboard.json')
+canurta_df_transposed = canurta_df.T
 
-st.dataframe(df)
-#sidebar
 with st.sidebar:
     st.sidebar.header("Please Filter Here:")
-    biomarkers = ("trail","crp","il6","tgfb","tgfa","il8","ip10")
+    biomarkers = ( 
+        trail= pd.DataFrame(canurta_df_transposed["trail"].value_counts())
+        crp = pd.DataFrame(canurta_df_transposed["crp"].value_counts())
+    )
     dropdown= st.multiselect("Pick your biomarker", biomarkers)
     start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
     end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
 
+ trail = pd.DataFrame(canurta_df_transposed["trail"].value_counts())
+ crp = pd.DataFrame(canurta_df_transposed["crp"].value_counts())
+ 
 if len(dropdown)>0:
-    canurta_df= int(dropdown)(start, end) ["Adj Close"]
-    st.line_chart(df)
+    canurta_df= (dropdown,start, end) ["Adj Close"]
+    st.line_chart(canurta_df)
 
-ds= pd.read_excel(
-    io="data.xlsx",
-    engine="openpyxl",
-    sheet_name="Data",
-    skiprows=0,
-    usecols="B:R",
-    nrows=1000,
-)
-print(ds)
+
 ###################### Gurkamal #####################################
 #####################################################################
 

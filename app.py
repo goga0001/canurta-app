@@ -1,10 +1,16 @@
+from cProfile import label
+from tarfile import PAX_FIELDS
 import requests
+import numpy as np
 import streamlit as st
 from streamlit_lottie import st_lottie
 import pandas as pd
 from matplotlib import pyplot as plt
 import plost
-import altair as alt
+import sqlite3
+import plotly.express as px
+import time
+
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -66,7 +72,18 @@ data=lang[choice]
 st.text("A close look into the data")
 st.line_chart(data)
 
-#Calories
+#Mood feedback
+
+with st.form("my_form"):
+    st.write("How is your mood")
+    slider_val = st.slider("Form slider", 0, 7, 10)
+     # Every form must have a submit button.
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("slider", slider_val  )
+st.write("Outside the form")
+
+
 
 
 

@@ -7,9 +7,7 @@ from streamlit_lottie import st_lottie
 import pandas as pd
 from matplotlib import pyplot as plt
 import plost
-import sqlite3
-import plotly.express as px
-import time
+import seaborn as sns
 
 
 
@@ -73,6 +71,7 @@ st.text("A close look into the data")
 st.line_chart(data)
 
 #Mood feedback
+#Mood feedback
 
 with st.form("my_form"):
     st.write("How is your mood")
@@ -85,14 +84,12 @@ st.write("Outside the form")
 
 
 
-
-
 ###################### Gurkamal #####################################
 #####################################################################
 
 ###################### Changing dataframe datatypes #################
 
-import seaborn as sns
+
 
 def import_json(json_file):
     df = pd.read_json(json_file)
@@ -120,12 +117,6 @@ sns.set_style("darkgrid")
 sns.lineplot(data = df_b2)
 
 st.write(df.head(5))
-
-
-
-############################# Helia ######################################
-##########################################################################
-
 #practice file with sample plot for RHR using json data
 import streamlit as st
 import pandas as pd
@@ -134,13 +125,14 @@ header = st.container()
 dataset = st.container()
 
 with header:
-   # st.title("Welcome back!")
+    st.title("Welcome back!")
 
 
 with dataset:
     canurta_df = pd.read_json('canurta_dashboard.json')
     canurta_df_transposed = canurta_df.T
-    #st.write(canurta_df_transposed.head())
+    st.write(canurta_df_transposed.head())
     rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
     st.bar_chart(rhr)
+
 

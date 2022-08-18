@@ -111,28 +111,10 @@ dfx_1 = dfx[df['user_id'] == 227722]
 df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
 df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
 
-sns.set_style("darkgrid")
-sns.lineplot(data = df_b1)
+import plotly.express as px
+fig = px.line(dfx_1, x='date', y=df.columns[1:8])
 
-sns.set_style("darkgrid")
-sns.lineplot(data = df_b2)
-
-def linePlot_dfx():
-    fig = plt.figure(figsize=(10, 4))
-    sns.lineplot(data = df_b1)
-    st.pyplot(fig)
-
-linePlot_dfx()
-
-st.write(df.head(5))
-
-def linePlot():
-    fig = plt.figure(figsize=(10, 4))
-    sns.lineplot(data = dfx_1)
-    st.pyplot(fig)
-
-linePlot()
-
+st.plotly_chart(fig, use_container_width=True)
 
 
 

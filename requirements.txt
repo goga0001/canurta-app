@@ -1,0 +1,8 @@
+streamlit_lottie
+matplotlib
+requests
+pandas
+plost
+altair
+openpyxl
+seaborn

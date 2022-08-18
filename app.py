@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import plost
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="App", page_icon=":seedling:",layout="centered")
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -29,7 +29,7 @@ c1, c2, c3 = st.columns((5,2,1))
 with c1:
    st.subheader("Welcome back")
    st.title("Dashboard")
-st.write("Check Your Acitivity")
+st.text("This is a web app to explore your health data")
 st.write("[Learn More >](https://www.canurta.com/)")
 with c2:
      st_lottie(lottie_coding, height=300, key="coding")
@@ -42,49 +42,34 @@ with c3:
  
 
 # Row A
-a1, a2, a3 = st.columns(3) 
-a1.metric("Biomarker 1", "30 pg mL-1", "7%")
-a2.metric("Biomarker 2","20 pg mL-1", "-5%")
-a3.metric("Biomarker 3","11 pg mL-1", "2%")
+col1, col2, col3 = st.columns(3)
+col1.metric("CRP","-2%")
+col2.metric("IL-6","-8%")
+col3.metric("TRF","+4%")
 
 st.text("")
 
-# Row B
-c1, c2 = st.columns((7,3))
-
-with c1:
-    st.markdown('### Mood Analysis')
-
-
- 
-with c2:
-    st.markdown('### Bar chart')
-    plost.donut_chart(
-        data=stocks,
-        theta='q2',
-        color='company')
-
-#sidebar    "trail","crp","il6","tgfb","tgfa","il8","ip10"
-canurta_df = pd.read_json('canurta_dashboard.json')
-canurta_df_transposed = canurta_df.T
+#sidebar 
+lang = pd.read_excel('Book1.xlsx')
 
 with st.sidebar:
     st.sidebar.header("Please Filter Here:")
-    biomarkers = ( 
-        trail= pd.DataFrame(canurta_df_transposed["trail"].value_counts())
-        crp = pd.DataFrame(canurta_df_transposed["crp"].value_counts())
-    )
-    dropdown= st.multiselect("Pick your biomarker", biomarkers)
+    list= lang.columns.tolist()
+    choice= st.multiselect("Pick your biomarker", list)
     start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
     end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
 
- trail = pd.DataFrame(canurta_df_transposed["trail"].value_counts())
- crp = pd.DataFrame(canurta_df_transposed["crp"].value_counts())
- 
-if len(dropdown)>0:
-    canurta_df= (dropdown,start, end) ["Adj Close"]
-    st.line_chart(canurta_df)
 
+data=lang[choice]
+st.text("A close look into the data")
+st.line_chart(data)
+
+#Calories
+canurta_df = pd.read_json('canurta_dashboard.json')
+canurta_df_transposed = canurta_df.T
+st.text("Calories tracker")
+calories = pd.DataFrame(canurta_df_transposed["calories"].value_counts())
+st.bar_chart(calories)
 
 ###################### Gurkamal #####################################
 #####################################################################
@@ -103,12 +88,6 @@ canurta_df['date'] = canurta_df['date'].astype('datetime64')
 
 st.write(canurta_df.head(5))
 
-
-####Helia####
-header = st.container()
-dataset = st.container()
-with header:
-    st.title("Welcome back!")
 
 
 ############################# Helia ######################################

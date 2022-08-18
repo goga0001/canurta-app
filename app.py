@@ -118,14 +118,6 @@ sns.lineplot(data = df_b2)
 
 st.write(df.head(5))
 #practice file with sample plot for RHR using json data
-import streamlit as st
-import pandas as pd
-
-header = st.container()
-dataset = st.container()
-
-with header:
-    st.title("Welcome back!")
 
 
 with dataset:

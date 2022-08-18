@@ -111,3 +111,13 @@ with dataset:
     rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
     st.bar_chart(rhr)
 
+####Background Image####
+st.markdown(
+   f”””
+   <style>
+   p {
+   background-image: url(‘img_file.jpg’);
+   }
+   </style>
+   ”””,
+   unsafe_allow_html=True)

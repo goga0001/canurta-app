@@ -107,6 +107,7 @@ df = import_json('canurta_dashboard.json')
 
 #subset data into biomarkers with similar ranges
 dfx = df.iloc[:,0:8]
+dfx_1 = dfx[df['user_id'] == 227722]
 df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
 df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
 
@@ -117,7 +118,13 @@ sns.set_style("darkgrid")
 sns.lineplot(data = df_b2)
 
 st.write(df.head(5))
-#practice file with sample plot for RHR using json data
+
+def linePlot():
+    fig = plt.figure(figsize=(10, 4))
+    sns.lineplot(data = dfx_1)
+    st.pyplot(fig)
+
+linePlot()
 
 
 

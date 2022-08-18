@@ -117,6 +117,13 @@ sns.lineplot(data = df_b1)
 sns.set_style("darkgrid")
 sns.lineplot(data = df_b2)
 
+def linePlot_dfx():
+    fig = plt.figure(figsize=(10, 4))
+    sns.lineplot(data = df_b1)
+    st.pyplot(fig)
+
+linePlot_dfx()
+
 st.write(df.head(5))
 
 def linePlot():

@@ -4,6 +4,8 @@ from streamlit_lottie import st_lottie
 import pandas as pd
 from matplotlib import pyplot as plt
 import plost
+import altair as alt
+
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="App", page_icon=":seedling:",layout="centered")
@@ -54,7 +56,7 @@ lang = pd.read_excel('Book1.xlsx')
 
 with st.sidebar:
     st.sidebar.header("Please Filter Here:")
-    list= lang.columns.tolist()
+    list= lang.columns[1:8].tolist()
     choice= st.multiselect("Pick your biomarker", list)
     start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
     end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
@@ -65,11 +67,8 @@ st.text("A close look into the data")
 st.line_chart(data)
 
 #Calories
-canurta_df = pd.read_json('canurta_dashboard.json')
-canurta_df_transposed = canurta_df.T
-st.text("Calories tracker")
-calories = pd.DataFrame(canurta_df_transposed["calories"].value_counts())
-st.bar_chart(calories)
+
+
 
 ###################### Gurkamal #####################################
 #####################################################################
@@ -111,13 +110,3 @@ with dataset:
     rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
     st.bar_chart(rhr)
 
-####Background Image####
-st.markdown(
-   f”””
-   <style>
-   p {
-   background-image: url(‘img_file.jpg’);
-   }
-   </style>
-   ”””,
-   unsafe_allow_html=True)

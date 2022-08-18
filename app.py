@@ -1,11 +1,16 @@
 from cProfile import label
+from tarfile import PAX_FIELDS
 import requests
+import numpy as np
 import streamlit as st
 from streamlit_lottie import st_lottie
 import pandas as pd
 from matplotlib import pyplot as plt
 import plost
 import sqlite3
+import plotly.express as px
+import time
+
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -77,6 +82,39 @@ with st.form("my_form"):
     if submitted:
         st.write("slider", slider_val  )
 st.write("Outside the form")
+
+####new##############
+app_df = pd.read_excel('Book1.xlsx')
+job_filter = st.selectbox("Select the Job", pd.unique(app_df["job"]))
+# dataframe filter
+app_df= app_df[app_df["job"] == job_filter]
+ #create three columns
+with placeholder.container():
+
+   kpi1, kpi2, kpi3 = st.columns(3)
+
+# fill in those three columns with respective metrics or KPIs
+kpi1.metric(
+    label=" Biomarker 1",
+    crp = pd.DataFrame(app_df["crp"].value_counts()),
+    value= crp,
+    delta=round(crp) - 10,
+)
+
+kpi2.metric(
+    label="Biomarker 2",
+    il6= pd.DataFrame(app_df["il6"].value_counts()),
+    value=int(il6),
+    delta=-10 + count_married,
+)
+
+kpi3.metric(
+    label="Biomarker 3",
+    trail = pd.DataFrame(app_df["trail"].value_counts()),
+    value=int(trail),
+    delta=-round(balance / count_married) * 100,
+)
+
 
 
 ###################### Gurkamal #####################################

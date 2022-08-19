@@ -42,7 +42,7 @@ def app():
             st.bokeh_chart(div)
 
         text_col, image_col = st.columns(2)
-        image_col.image("share_symbol.png") #putting an image in almost centre of page
+        image_col.image("images/share_symbol.png") #putting an image in almost centre of page
 
 
 

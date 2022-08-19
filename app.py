@@ -14,6 +14,7 @@ from streamlit_option_menu import option_menu
 from multiapp import MultiApp
 from apps import home, data, model
 import tkinter as TK
+import plotly.express as px
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/

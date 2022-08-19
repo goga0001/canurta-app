@@ -4,7 +4,7 @@ import pandas as pd
 
 def app():
     st.title('Data')
-    with st.form("my_form"):
+    with st.form("my_format"):
       st.write("How is your mood")
       slider_val = st.slider("Form slider", 0, 7, 10)
      # Every form must have a submit button.

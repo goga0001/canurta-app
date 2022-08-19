@@ -6,3 +6,4 @@ plost
 altair
 openpyxl
 seaborn
+streamlit-option-menu

@@ -8,12 +8,42 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import plost
 import seaborn as sns
-
+from streamlit_option_menu import option_menu
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="App", page_icon=":seedling:",layout="wide")
+###Navigation bar
 
+EXAMPLE_NO = 1
+
+
+def streamlit_menu(example=1):
+     
+
+    if example == 2:
+        # 2. horizontal menu w/o custom style
+        selected = option_menu(
+            menu_title=None,  # required
+            options=["Home", "Results", "Profile"],  # required
+            icons=["house", "book", "envelope"],  # optional
+            menu_icon="cast",  # optional
+            default_index=0,  # optional
+            orientation="horizontal",
+        )
+        return selected
+
+selected = streamlit_menu(example=2)
+
+if selected == "Home":
+    st.text("")
+if selected == "Results":
+    st.text("")
+if selected == "Profile":
+    st.text("")
+
+
+#ICON
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
@@ -42,8 +72,13 @@ with c2:
 with c3:
     st.button('Sign In')
 
+####Product
 
-    
+st.text("Get your product")
+from PIL import Image
+image = Image.open('https://static.wixstatic.com/media/a1caab_e2a7ef47f7bc4a3a8fdd7a9d40399f4a~mv2.png/v1/fill/w_1270,h_1178,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/a1caab_e2a7ef47f7bc4a3a8fdd7a9d40399f4a~mv2.png')
+
+st.image(image, caption='Product')    
  
  
 

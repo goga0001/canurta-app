@@ -12,7 +12,7 @@ import seaborn as sns
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="App", page_icon=":seedling:",layout="centered")
+st.set_page_config(page_title="App", page_icon=":seedling:",layout="wide")
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -36,7 +36,7 @@ with c1:
    st.subheader("Welcome back")
    st.title("Dashboard")
 st.text("This is a web app to explore your health data")
-st.write("[Learn More >](https://www.canurta.com/)")
+st.write("[Order>](https://www.canurta.com/)")
 with c2:
      st_lottie(lottie_coding, height=300, key="coding")
 with c3:

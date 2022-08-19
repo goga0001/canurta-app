@@ -5,5 +5,5 @@ pandas
 plost
 altair
 openpyxl
-seaborn
+plotly
 streamlit-option-menu

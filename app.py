@@ -14,7 +14,7 @@ from streamlit_option_menu import option_menu
 from multiapp import MultiApp
 from apps import home, data, model
 import tkinter as TK
-
+import plotly.express as px
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -61,7 +61,7 @@ dfx_1 = dfx[df['user_id'] == 227722]
 df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
 df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
 
-import plotly.express as px
+
 fig = px.line(dfx_1, x='date', y=df.columns[1:8])
 
 st.plotly_chart(fig, use_container_width=True)

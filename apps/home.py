@@ -47,6 +47,9 @@ def app():
     st.text("Get your product here:")
     st.write("[Order>](https://www.canurta.com/)")
     from PIL import Image
-    a1, a2 = st.columns(2)
-    a1.image(Image.open('images/image.png'), width=400)
-    a2.metric("Recomendation: ", "2 pills")
+    a1, a2, a3, a4, a5= st.columns(5)
+    a1.image(Image.open('images/image.png'), width=150)
+    a2.metric("Daily Dose: ", "2 pills")
+    a3.metric("Avg Inflammation Score","20%")
+    a4.metric("Avg Pain Score", "8%")
+    a5.metric("Avg mood score", "11%")

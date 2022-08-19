@@ -107,32 +107,14 @@ df = import_json('canurta_dashboard.json')
 
 #subset data into biomarkers with similar ranges
 dfx = df.iloc[:,0:8]
+dfx_1 = dfx[df['user_id'] == 227722]
 df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
 df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
 
-sns.set_style("darkgrid")
-sns.lineplot(data = df_b1)
+import plotly.express as px
+fig = px.line(dfx_1, x='date', y=df.columns[1:8])
 
-sns.set_style("darkgrid")
-sns.lineplot(data = df_b2)
+st.plotly_chart(fig, use_container_width=True)
 
-st.write(df.head(5))
-#practice file with sample plot for RHR using json data
-import streamlit as st
-import pandas as pd
-
-header = st.container()
-dataset = st.container()
-
-with header:
-    st.title("Welcome back!")
-
-
-with dataset:
-    canurta_df = pd.read_json('canurta_dashboard.json')
-    canurta_df_transposed = canurta_df.T
-    st.write(canurta_df_transposed.head())
-    rhr = pd.DataFrame(canurta_df_transposed["rhr"].value_counts())
-    st.bar_chart(rhr)
 
 

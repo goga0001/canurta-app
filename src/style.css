@@ -11,16 +11,14 @@ div.css-1v3fvcr.egzxvld1 {
 
 /* row1 */
 
-div.css-1r6slb0.e1tzin5v2 {
-    background-color: #43d6b9;
-    border: 2px solid #d7d1d1;
-    padding: 10px 10px 20px 10px;
+div.css-12w0qpk.e1tzin5v2 {
+    background-color: goldenrod;
+    padding: 3% 3% 3% 3%;
+    border-radius: 5px;
+    color: #023334;
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto;
     cursor: pointer;
-    border-radius: 10px;
-    margin: -5px;
-    height: 100px;
-    font-size: 15px;
-    width: 100px;
 }
 
 
@@ -58,7 +56,4 @@ div.css-j5r0tf e1tzin5v2 {
     height: 100px;
     font-size: 15px;
     width: 100px;
-}
-
-
 }

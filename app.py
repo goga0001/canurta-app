@@ -15,7 +15,8 @@ from multiapp import MultiApp
 from apps import home, data, model
 import tkinter as TK
 
-
+with open('src/style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 #st.set_page_config(page_title="App", page_icon=":seedling:",layout="wide")
@@ -41,6 +42,7 @@ app.run()
 #####################################################################
 
 ###################### Changing dataframe datatypes #################
+st.title("💬 Trends")
 def import_json(json_file):
     df = pd.read_json(json_file)
     df =df.T

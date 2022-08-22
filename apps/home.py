@@ -1,5 +1,6 @@
 from cProfile import label
 from curses import keyname
+from email.mime import image
 from tarfile import PAX_FIELDS
 from turtle import width
 import requests
@@ -25,7 +26,7 @@ def load_lottieurl(url):
 
 with open('src/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
+ 
 # Data
 df= pd.read_csv('https://raw.githubusercontent.com/goga0001/canurta/main/Untitled%20spreadsheet%20-%20Sheet1.csv')
 
@@ -34,27 +35,37 @@ lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_l1
 # ---- HEADER SECTION ----
 #heading
 def app():
-    c1, c2, c3 = st.columns((5,2,1))
+    c1, c2, c3 = st.columns((3.5,2,1))
     with c1:
        st.subheader("Welcome back")
        st.title("Dashboard")
-       st.header("This is a web app to explore your health data")
-
+       st.write("This is a web app to explore your health data")
+    
        with c2:
-        st_lottie(lottie_coding, height=300, key="coding")
+        st_lottie(lottie_coding, height=400, width=250, key="coding")
        with c3:
         st.button('Sign In')
 
     st.text("")
-    if st.button("Get your product here"): #creating a button with a hyperlink
-            js = "window.open('https://www.canurta.com/')"
-            html = '<img src onerror="{}">'.format(js)
-            div = Div(text=html)
-            st.bokeh_chart(div)
+
+    
+
+    st.text("")
+
     from PIL import Image
-    a1, a2, a3, a4, a5= st.columns(5)
-    a1.image(Image.open('images/share_symbol.png'), width=150)
-    a2.metric("Daily Dose: ", "2 pills")
-    a3.metric("Avg Inflammation Score","20%")
-    a4.metric("Avg Pain Score", "8%")
-    a5.metric("Avg mood score", "11%")
+    image = Image.open('images/image.png')
+    st.image(image, caption='Sunrise by the mountains', width=200)
+
+
+    if  st.button("Get your product here"): 
+             js = "window.open('https://www.canurta.com/')"
+             html = '<img src onerror="{}">'.format(js)
+             div = Div(text=html)
+             st.bokeh_chart(div)
+
+    from PIL import Image
+    a1, a2, a3, a4= st.columns(4)
+    a1.metric("Daily Dose: ", "2 pills")
+    a2.metric("Avg Inflammation Score","20%")
+    a3.metric("Avg Pain Score", "8%")
+    a4.metric("Avg mood score", "11%")

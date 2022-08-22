@@ -1,17 +1,23 @@
 ###side bar line 41 app.py
-lang = pd.read_excel('Book1.xlsx')
+def app():
+    st.title('Data')
+    lang = pd.read_excel('Book1.xlsx')
 
-with st.sidebar:
-    st.sidebar.header("Please Filter Here:")
-    list= lang.columns[1:8].tolist()
-    choice= st.multiselect("Pick your biomarker", list)
-    start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
-    end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
+    with st.expander(" Choose your filters"):
+      list= lang.columns[1:8].tolist()
+      choice= st.multiselect("Pick your biomarker", list, list[:3])
+      start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
+      end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
 
-
-data=lang[choice]
-st.text("A close look into the data")
-st.line_chart(data)
+    data=lang[choice]
+    st.text("A close look into the data")
+    st.line_chart(data)
+    
+    if st.button("Share results with your doctor"):
+        js = "window.open('https://www.canurta.com/')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
 
 ###HELIA
@@ -40,3 +46,5 @@ def app():
         html = '<img src onerror="{}">'.format(js)
         div = Div(text=html)
         st.bokeh_chart(div)
+
+"trail","crp","il6","tgfb","tgfa","il8","ip10","rhr","calories","sleep","skin_temp"	 

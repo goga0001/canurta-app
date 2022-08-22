@@ -19,16 +19,33 @@ def app():
         pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
 
     with personal_info:
-        st.subheader("Personal Info")
-        st.text("Name:")
-        st.text("Age:")
-        st.text("Height:")
-        st.text("Weight:")
-        if st.button("Subscription Details"): #creating a button with a hyperlink
-            js = "window.open('https://www.canurta.com/')"
-            html = '<img src onerror="{}">'.format(js)
-            div = Div(text=html)
-            st.bokeh_chart(div) 
+    st.subheader("Personal Info")
+    def form():
+        with st.form(key="Information Form"):
+            name = st.text_input("Full Name: ")
+            age = st.text_input("Age: ")
+            height = st.text_input("Height: ")
+            weight = st.text_input("Weight: ")
+            submission = st.form_submit_button(label="Submit")
+            if submission == True:
+                addData(name,age,height,weight)
+    
+    
+    def addData(a,b,c,d):
+        cur.execute("""CREATE TABLE IF NOT EXISTS personal_form(NAME TEXT(50), AGE TEXT(50), HEIGHT TEXT(50), WEIGHT TEXT(50));""")
+        cur.execute("INSERT INTO personal_form VALUES (?,?,?,?)", (a,b,c,d))
+        conn.commit()
+        conn.close()
+        st.success("Successfully submitted!")
+    form()
+            
+            
+    if st.button("Subscription Details"): #creating a button with a hyperlink
+        js = "window.open('https://www.canurta.com/')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div) 
+
 
 
     with share_results: 

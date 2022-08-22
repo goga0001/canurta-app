@@ -13,6 +13,7 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 from multiapp import MultiApp
 from apps import home, data, model
+from bokeh.models.widgets import Div
 
 #ICON
 def load_lottieurl(url):
@@ -44,11 +45,15 @@ def app():
        with c3:
         st.button('Sign In')
 
-    st.text("Get your product here:")
-    st.write("[Order>](https://www.canurta.com/)")
+    st.text("")
+    if st.button("Get your product here"): #creating a button with a hyperlink
+            js = "window.open('https://www.canurta.com/')"
+            html = '<img src onerror="{}">'.format(js)
+            div = Div(text=html)
+            st.bokeh_chart(div)
     from PIL import Image
     a1, a2, a3, a4, a5= st.columns(5)
-    a1.image(Image.open('images/image.png'), width=150)
+    a1.image(Image.open('images/share_symbol.png'), width=150)
     a2.metric("Daily Dose: ", "2 pills")
     a3.metric("Avg Inflammation Score","20%")
     a4.metric("Avg Pain Score", "8%")

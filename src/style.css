@@ -48,69 +48,17 @@ div.css-nlntq9.e16nr0p30 {
 
 /* IMAGE */
 
-div.css-1kyxreq.etr89bj0 {
-    font-stretch: 100%;
-    font-style: normal;
-    font-variant-caps: normal;
-    font-variant-east-asian: normal;
-    font-variant-ligatures: normal;
-    font-variant-numeric: normal;
-    font-weight: 400;
-    height: 589px;
-    line-height: normal;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    object-fit: cover;
-    object-position: 50% 50%;
-    outline-color: rgb(0, 0, 0);
-    outline-style: none;
-    outline-width: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    pointer-events: auto;
-    position: static;
-    text-size-adjust: 100%;
-    user-select: none;
-    vertical-align: baseline;
-    width: 635px;
-    -webkit-highlight: none;
-    -webkit-mask-image: none;
-    -webkit-mask-position-x: 0px;
-    -webkit-mask-position-y: 50%;
-    -webkit-mask-size: 100% 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: none;
-    background-origin: padding-box;
-    background-position-x: 0%;
-    background-position-y: 0%;
-    background-size: auto;
-    border-bottom-color: rgb(0, 0, 0);
-    border-bottom-style: none;
-    border-bottom-width: 0px;
-    border-image-outset: 0;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-source: none;
-    border-image-width: 1;
-    border-left-color: rgb(0, 0, 0);
-    border-left-style: none;
-    border-left-width: 0px;
-    border-right-color: rgb(0, 0, 0);
-    border-right-style: none;
-    border-right-width: 0px;
-    border-top-color: rgb(0, 0, 0);
-    border-top-style: none;
-    border-top-width: 0px;
-    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-    display: inline;
-    filter: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
+div.css-j5r0tf e1tzin5v2 {
+    background-color: #43d6b9;
+    border: 2px solid #d7d1d1;
+    padding: 10px 10px 20px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: -5px;
+    height: 100px;
+    font-size: 15px;
+    width: 100px;
+}
+
+
 }

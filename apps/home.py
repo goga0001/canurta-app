@@ -31,7 +31,10 @@ with open('src/style.css') as f:
 df= pd.read_csv('https://raw.githubusercontent.com/goga0001/canurta/main/Untitled%20spreadsheet%20-%20Sheet1.csv')
 
 #load assets
-lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_l13zwx3i.json")
+def space(num_lines=1):
+    """Adds empty lines to the Streamlit app."""
+    for _ in range(num_lines):
+        st.write("")
 # ---- HEADER SECTION ----
 #heading
 def app():
@@ -42,7 +45,9 @@ def app():
        st.write("This is a web app to explore your health data")
     
        with c2:
-        st_lottie(lottie_coding, height=400, width=250, key="coding")
+        from PIL import Image
+        image = Image.open('images/canurta.png')
+        st.image(image, width=200)
        with c3:
         st.button('Sign In')
 
@@ -53,8 +58,8 @@ def app():
     st.text("")
 
     from PIL import Image
-    image = Image.open('images/image.png')
-    st.image(image, caption='Sunrise by the mountains', width=200)
+    image = Image.open('images/canurta1.png')
+    st.image(image, width=300)
 
 
     if  st.button("Get your product here"): 
@@ -62,7 +67,7 @@ def app():
              html = '<img src onerror="{}">'.format(js)
              div = Div(text=html)
              st.bokeh_chart(div)
-
+    space(1)
     from PIL import Image
     a1, a2, a3, a4= st.columns(4)
     a1.metric("Daily Dose: ", "2 pills")

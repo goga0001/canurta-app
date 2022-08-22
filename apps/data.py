@@ -5,7 +5,7 @@ import plotly.express as px
 
 def app():
     def app():
-    st.title('Data')
+     st.title('Data')
     lang = pd.read_excel('Book1.xlsx')
 
     with st.expander(" Choose your filters"):

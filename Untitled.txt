@@ -19,7 +19,7 @@ def app():
         div = Div(text=html)
         st.bokeh_chart(div)
 
-
+###lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_l13zwx3i.json")
 ###HELIA
 import streamlit as st
 from bokeh.models.widgets import Div

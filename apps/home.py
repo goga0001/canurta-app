@@ -38,6 +38,9 @@ def space(num_lines=1):
 # ---- HEADER SECTION ----
 #heading
 def app():
+    
+    
+
     c1, c2 = st.columns((4,1))
     with c1:
        st.subheader("Welcome back")
@@ -48,7 +51,7 @@ def app():
         st.button('Sign In')
 
     space(2)
-    a1, a2 = st.columns((5,5))
+    a1, a2 = st.columns((5,1.5))
     with a1:
      from PIL import Image
      image = Image.open('images/canurta1.png')
@@ -57,7 +60,7 @@ def app():
     with a2:
         from PIL import Image
         image = Image.open('images/canurta.png')
-        st.image(image, width=200)
+        st.image(image, width=350)
 
 
     if  st.button("Get your product here"): 

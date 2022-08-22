@@ -2,10 +2,13 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import json
+import json
+import matplotlib.pyplot as plt
+
 
 def app():
-    def app():
-     st.title('Data')
+    st.title('Data')
     lang = pd.read_excel('Book1.xlsx')
 
     with st.expander(" Choose your filters"):
@@ -23,6 +26,3 @@ def app():
         html = '<img src onerror="{}">'.format(js)
         div = Div(text=html)
         st.bokeh_chart(div)
-    
-   
-

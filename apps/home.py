@@ -38,28 +38,26 @@ def space(num_lines=1):
 # ---- HEADER SECTION ----
 #heading
 def app():
-    c1, c2, c3 = st.columns((3.5,2,1))
+    c1, c2 = st.columns((4,1))
     with c1:
        st.subheader("Welcome back")
        st.title("Dashboard")
-       st.write("This is a web app to explore your health data")
+       st.header("This is a web app to explore your health data")
     
        with c2:
+        st.button('Sign In')
+
+    space(2)
+    a1, a2 = st.columns((5,5))
+    with a1:
+     from PIL import Image
+     image = Image.open('images/canurta1.png')
+     st.image(image, width=300)
+
+    with a2:
         from PIL import Image
         image = Image.open('images/canurta.png')
         st.image(image, width=200)
-       with c3:
-        st.button('Sign In')
-
-    st.text("")
-
-    
-
-    st.text("")
-
-    from PIL import Image
-    image = Image.open('images/canurta1.png')
-    st.image(image, width=300)
 
 
     if  st.button("Get your product here"): 

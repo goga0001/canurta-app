@@ -21,6 +21,7 @@ class MultiApp:
         app.add_app("Bar", bar.app)
         app.run()
     """
+    st.set_page_config(layout="wide")
     def __init__(self):
         self.apps = []
 
@@ -39,9 +40,9 @@ class MultiApp:
         })
 
     def run(self):
-        # app = st.sidebar.radio(
-        app = st.selectbox(
-            'Navigation',
+        app = st.sidebar.radio(
+        #app = st.selectbox(
+            '',
             self.apps,
             format_func=lambda app: app['title'])
 

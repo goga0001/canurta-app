@@ -9,7 +9,7 @@ plotly
 dash
 python
 opencv-python
-bokeh.models.widgets
+
 matplotlib.pyplot
 json
 plotly.express
@@ -23,4 +23,4 @@ cProfile
 curses  
 tarfile
 tensorflow
-bokeh.models
+bsqlite3

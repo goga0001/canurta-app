@@ -26,3 +26,6 @@ cProfile
 curses  
 tarfile
 tensorflow
+bokeh.models
+bokeh.io
+bokeh

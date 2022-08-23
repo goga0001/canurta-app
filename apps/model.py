@@ -19,7 +19,7 @@ def app():
         pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
 
     with personal_info:
-    st.subheader("Personal Info")
+     st.subheader("Personal Info")
     def form():
         with st.form(key="Information Form"):
             name = st.text_input("Full Name: ")

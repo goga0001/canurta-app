@@ -66,6 +66,18 @@ import plotly.express as px
 fig = px.line(dfx_1, x='date', y=df.columns[1:8])
 
 st.plotly_chart(fig, use_container_width=True)
+#######
+lang = pd.read_json('canurta_json.json')
 
+with st.expander(" Choose your filters"):
+      list= df.columns[1:8].tolist()
+      choice= st.multiselect("Pick your biomarker", list[0:8])
+      start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
+      end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
+
+data=dfx_1[choice]
+st.text("A close look into the data")
+fig1= px.line(dfx_1, x='date', y=df.columns[1:8])
+st.plotly_chart(fig1, use_container_width=True)
 
 

@@ -7,9 +7,7 @@ altair
 openpyxl
 plotly
 dash
-python
-opencv-python
-
+pythonopencv-python
 matplotlib.pyplot
 json
 plotly.express
@@ -23,4 +21,4 @@ cProfile
 curses  
 tarfile
 tensorflow
-bsqlite3
+sqlite3

@@ -7,7 +7,7 @@ altair
 openpyxl
 plotly
 dash
-python==3.9.12
+python
 opencv-python
 bokeh.models.widgets
 matplotlib.pyplot

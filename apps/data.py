@@ -63,4 +63,7 @@ def app():
         st.bokeh_chart(div)
 
         ############HEATMAP########     
- 
+    with st.form(key="daily_tracker"):
+        mood_slider = st.slider("Daily Mood Tracker", min_value=0, max_value=10, value=5, step=1)
+        pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
+        submit = st.form_submit_button(label="Submit")

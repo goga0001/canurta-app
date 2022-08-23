@@ -61,3 +61,6 @@ def app():
         html = '<img src onerror="{}">'.format(js)
         div = Div(text=html)
         st.bokeh_chart(div)
+
+        ############HEATMAP########     
+ 

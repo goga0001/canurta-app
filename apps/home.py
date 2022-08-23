@@ -13,8 +13,8 @@ import plost
 import seaborn as sns
 from streamlit_option_menu import option_menu
 from multiapp import MultiApp
-from apps import home, data, model
 from bokeh.models.widgets import Div
+from apps import home, data, model
 
 #ICON
 def load_lottieurl(url):

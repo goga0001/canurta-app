@@ -62,22 +62,8 @@ dfx = df.iloc[:,0:8]
 dfx_1 = dfx[df['user_id'] == 227722]
 df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
 df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
+
 import plotly.express as px
 fig = px.line(dfx_1, x='date', y=df.columns[1:8])
 
 st.plotly_chart(fig, use_container_width=True)
-#######
-lang = pd.read_json('canurta_json.json')
-
-with st.expander(" Choose your filters"):
-      list= df.columns[1:8].tolist()
-      choice= st.multiselect("Pick your biomarker", list[0:8])
-      start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
-      end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
-
-data=dfx_1[choice]
-st.text("A close look into the data")
-fig1= px.line(dfx_1, x='date', y=df.columns[1:8])
-st.plotly_chart(fig1, use_container_width=True)
-
-

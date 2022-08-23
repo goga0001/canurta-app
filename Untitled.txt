@@ -18,6 +18,27 @@ def app():
         html = '<img src onerror="{}">'.format(js)
         div = Div(text=html)
         st.bokeh_chart(div)
+########GAUKHAR################
+#######
+lang = pd.read_json('canurta_json.json')
+
+with st.expander(" Choose your filters"):
+      list= df.columns[1:8].tolist()
+      choice= st.multiselect("Pick your biomarker", list[0:8])
+      start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
+      end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
+
+data=dfx_1[choice]
+st.text("A close look into the data")
+df = import_json('canurta_dashboard.json')
+fig1= px.line(data, x=df['date'],y=df.columns[:])
+fig1.update_yaxes(title_text='value')
+fig1.update_xaxes(title_text='date')
+st.plotly_chart(fig1, use_container_width=True)
+
+
+#y=df['user_id'].values
+
 
 ###lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_l13zwx3i.json")
 ###HELIA

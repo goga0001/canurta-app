@@ -18,9 +18,9 @@ def app():
     with header:
         st.title("My Profile :star2:")
 
-    with user_input: #mood and pain user input 
-        mood_slider = st.slider("Daily Mood Tracker", min_value=0, max_value=10, value=5, step=1)
-        pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
+    #with user_input: #mood and pain user input 
+    #    mood_slider = st.slider("Daily Mood Tracker", min_value=0, max_value=10, value=5, step=1)
+    #    pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
 
     with personal_info:
         st.subheader("Personal Info")
@@ -53,10 +53,17 @@ def app():
 
 
     with share_results: 
-        st.subheader("Share My Results")
+        st.subheader("My Physician")
         #st.button("Send Report to My Doctor")
-
-        st.write("[Send report to my doctor >](https://mail.yahoo.com/)")
+        def physician_form():
+            with st.form(key="Physician Form"):
+                doctor_name = st.text_input("Doctor's Name: ")
+                doctor_email = st.text_input("Email: ")
+                submission = st.form_submit_button(label="Invite")
+                if submission == True:
+                   st.success("Successfully submitted!") 
+        physician_form()
+        #st.write("[Connect with my doctor >](https://mail.yahoo.com/)")
         st.write("[Connect to Fullscript >](https://fullscript.com/)")
         
         #if st.button("Connect to Fullscript"): #creating a button with a hyperlink

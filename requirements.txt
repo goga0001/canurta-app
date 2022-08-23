@@ -24,7 +24,7 @@ curses
 tarfile
 tensorflow
 bokeh.models
-bokeh.io
+
 bokeh
 bokeh.models.widgets.markups.Markup
 div

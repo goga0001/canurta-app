@@ -1,6 +1,7 @@
 """Frameworks for running multiple Streamlit applications as a single app.
 """
 import streamlit as st
+from bokeh.models.widgets import Div
 
 class MultiApp:
     """Framework for combining multiple streamlit applications.
@@ -38,12 +39,29 @@ class MultiApp:
             "title": title,
             "function": func
         })
+        #################
+    
+
+       
+
 
     def run(self):
         app = st.sidebar.radio(
         #app = st.selectbox(
             '',
+            
             self.apps,
-            format_func=lambda app: app['title'])
+            format_func=lambda app: app['title'],
+            )
+        
+        
 
         app['function']()
+
+
+       
+
+
+
+        
+        

@@ -43,9 +43,9 @@ def app():
 
     c1, c2 = st.columns((4,1))
     with c1:
-       st.subheader("Welcome back")
+       
        st.title("Dashboard")
-       st.header("This is a web app to explore your health data")
+       
     
        with c2:
         st.button('Sign In')
@@ -57,17 +57,9 @@ def app():
      image = Image.open('images/canurta1.png')
      st.image(image, width=300)
 
-    with a2:
-        from PIL import Image
-        image = Image.open('images/canurta.png')
-        st.image(image, width=350)
+  
 
-
-    if  st.button("Get your product here"): 
-             js = "window.open('https://www.canurta.com/')"
-             html = '<img src onerror="{}">'.format(js)
-             div = Div(text=html)
-             st.bokeh_chart(div)
+    
     space(1)
     from PIL import Image
     a1, a2, a3, a4= st.columns(4)

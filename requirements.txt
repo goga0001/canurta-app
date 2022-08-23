@@ -7,7 +7,7 @@ altair
 openpyxl
 plotly
 dash
-python
+python==3.9.12
 opencv-python
 bokeh.models.widgets
 matplotlib.pyplot
@@ -24,9 +24,3 @@ curses
 tarfile
 tensorflow
 bokeh.models
-python
-bokeh
-bokeh.models.widgets.markups.Markup
-div
-bokeh==2.4.3
-BOKEH_DEV

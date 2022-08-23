@@ -6,9 +6,6 @@ plost
 altair
 openpyxl
 plotly
-streamlit-option-menu
-bokeh
-div
 dash
 python
 opencv-python
@@ -30,4 +27,6 @@ bokeh.models
 bokeh.io
 bokeh
 bokeh.models.widgets.markups.Markup
-
+div
+bokeh==2.4.3
+BOKEH_DEV

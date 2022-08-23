@@ -50,20 +50,15 @@ def app():
        with c2:
         st.button('Sign In')
 
-    space(2)
-    a1, a2 = st.columns((5,1.5))
-    with a1:
-     from PIL import Image
-     image = Image.open('images/canurta1.png')
-     st.image(image, width=300)
-
-  
-
     
+
+    space(1)
+    space(1)
+    space(1)
     space(1)
     from PIL import Image
     a1, a2, a3, a4= st.columns(4)
     a1.metric("Daily Dose: ", "2 pills")
-    a2.metric("Avg Inflammation Score","20%")
+    a2.metric("Avg Inflammation \n Score","20%")
     a3.metric("Avg Pain Score", "8%")
     a4.metric("Avg mood score", "11%")

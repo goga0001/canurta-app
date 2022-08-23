@@ -1,4 +1,6 @@
 streamlit_lottie
+matplotlib.pyplot
+opencv-python
 matplotlib
 requests
 pandas
@@ -7,7 +9,6 @@ altair
 openpyxl
 plotly
 dash
-matplotlib.pyplot
 json
 plotly.express
 numpy

@@ -46,6 +46,7 @@ class MultiApp:
 
 
     def run(self):
+        st.sidebar.image("images/canurta_logo.png", use_column_width=True)
         app = st.sidebar.radio(
         #app = st.selectbox(
             '',
@@ -54,6 +55,8 @@ class MultiApp:
             format_func=lambda app: app['title'],
             )
         
+        st.sidebar.image("images/canurta1.png", use_column_width=True)
+        st.sidebar.button("Get your product here")
         
 
         app['function']()

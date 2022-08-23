@@ -9,16 +9,25 @@ div.css-1v3fvcr.egzxvld1 {
 }
 
 
-/* row1 */
+/* Header */
+
+div.css-10trblm.e16nr0p33 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+/* columns */
 
 div.css-12w0qpk.e1tzin5v2 {
-    background-color: goldenrod;
+    background-color: #E6E6E6;
     padding: 3% 3% 3% 3%;
     border-radius: 5px;
+    border: solid;
     color: #023334;
     font-family: 'Courier New', Courier, monospace;
     margin: auto;
     cursor: pointer;
+    background-clip: border-box;
 }
 
 
@@ -77,4 +86,19 @@ div.css-ocqkz7.e1tzin5v0 {
 .fullScreenFrame>div {
     display: flex;
     justify-content: center;
+}
+
+
+/* SIDEBAR */
+
+div.css-zbg2rx.e1fqkh3o1 {
+    background-color: #023334;
+    color: black
+}
+
+div.st-bx.st-cb.st-cc.st-ae.st-af.st-ag.st-ah.st-ai.st-aj {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    border-radius: 5px;
+    list-style: none
 }

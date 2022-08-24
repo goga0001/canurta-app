@@ -122,3 +122,20 @@ pythonopencv-python
 change sign in button to image
 
 figma
+
+
+###
+import matplotlib.pyplot as plt
+
+    
+    lang = pd.read_excel('canurta_data.xlsx')
+    data=lang[""]
+
+    
+    def plot_diagnostics(self):
+      for target in data:
+        plt.figure()
+        plt.plot(self.lang["historic_dates"], self.df[target]["historic_raw"],"o")
+    
+
+    return plot_diagnostics()

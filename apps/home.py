@@ -2,7 +2,7 @@ from cProfile import label
 from curses import keyname
 from email.mime import image
 from tarfile import PAX_FIELDS
-from turtle import width
+from turtle import color, width
 import requests
 import numpy as np
 import streamlit as st
@@ -15,6 +15,9 @@ from streamlit_option_menu import option_menu
 from multiapp import MultiApp
 from bokeh.models.widgets import Div
 from apps import home, data, model
+import json
+import json
+
 
 #ICON
 def load_lottieurl(url):
@@ -52,6 +55,7 @@ def app():
 
     
 
+
     space(1)
     space(1)
     space(1)
@@ -62,3 +66,6 @@ def app():
     a2.metric("Avg Inflammation \n Score","20%")
     a3.metric("Avg Pain Score", "8%")
     a4.metric("Avg mood score", "11%")
+
+    space(1)
+

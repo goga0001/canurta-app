@@ -53,21 +53,6 @@ div.css-nlntq9.e16nr0p30 {
 }
 
 
-/* IMAGE */
-
-div.css-j5r0tf e1tzin5v2 {
-    background-color: #43d6b9;
-    border: 2px solid #d7d1d1;
-    padding: 10px 10px 20px 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    margin: -5px;
-    height: 100px;
-    font-size: 15px;
-    width: 100px;
-}
-
-
 /* BACKGROUND */
 
 div.css-fg4pbf.eczokvf0 {
@@ -96,9 +81,13 @@ div.css-zbg2rx.e1fqkh3o1 {
     color: black
 }
 
-div.st-bx.st-cb.st-cc.st-ae.st-af.st-ag.st-ah.st-ai.st-aj {
+div.st-by.st-cc.st-cd.st-ae.st-af.st-ag.st-ah.st-ai.st-aj {
     color: black;
     font-family: Helvetica, Arial, sans-serif;
     border-radius: 5px;
     list-style: none
+}
+
+div.css-1v3fvcr.egzxvld1 {
+    background-image: url("images/background.png");
 }

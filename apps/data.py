@@ -9,7 +9,19 @@ from apps import home, data, model
 
 
 def app():
-    st.title('Data')
+    a2, a3 = st.columns(2)
+    with a2:
+     st.title('Data')
+    with a3:
+     button= st.button("Share results with your doctor")
+     if button:
+        js = "window.open('https://www.canurta.com/')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
+
+
+
     lang = pd.read_excel('Book1.xlsx')
 
   
@@ -55,12 +67,7 @@ def app():
 
 
 
-    ############BUTTON#########      FINISHED
-    if st.button("Share results with your doctor"):
-        js = "window.open('https://www.canurta.com/')"
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
+
 
         ############HEATMAP########     
     with st.form(key="daily_tracker"):

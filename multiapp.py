@@ -30,7 +30,15 @@ side_bar="""
 }
 <style>
 """
- 
+dashboard="""
+<style>
+#dashboard{
+     position:relative; 
+     
+     top:-100px
+}
+<style>
+"""
 class MultiApp:
     """Framework for combining multiple streamlit applications.
     Usage:
@@ -82,6 +90,7 @@ class MultiApp:
         st.sidebar.image("images/canurta_logo.png", use_column_width=True, width=100)
         st.markdown(hide_menu, unsafe_allow_html= True)
         st.markdown(side_bar, unsafe_allow_html= True)
+        st.markdown(dashboard, unsafe_allow_html= True)
 
 
         with st.sidebar:

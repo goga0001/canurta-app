@@ -1,28 +1,35 @@
 import streamlit as st
-#from bokeh.models.widgets import Div
 import sqlite3
 conn = sqlite3.connect("personal_data.db", check_same_thread=False)
 cur = conn.cursor()
-#st.set_page_config(page_title="My Profile", page_icon=":memo:", layout="wide")
+from streamlit_option_menu import option_menu #used to make navigation bar
+
 
 def app():
     #st.title('My Profile')
     #st.write("profile (where the user can input to capture pain, mood")
     #st.write("share data to doctor using the share symbol (get the doctors info/email), maybe use fullscript as link to connect to portal)")   
     
-    header = st.container() 
-    user_input = st.container()
-    personal_info = st.container()
-    share_results = st.container()
-
-    with header:
-        st.title("My Profile :star2:")
+    st.title("My Profile :clipboard:")
 
     #with user_input: #mood and pain user input 
     #    mood_slider = st.slider("Daily Mood Tracker", min_value=0, max_value=10, value=5, step=1)
     #    pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
 
-    with personal_info:
+    selected = option_menu(
+        menu_title=None,
+        options=["Personal Info", "Share Results", "Subsctiption Details"],
+        icons=["book","share","file-earmark-medical"],
+        orientation="horizontal",
+        styles={
+            "container": {"padding": "0!important", "background-color": "#fafafa"},
+            "icon": {"color": "black", "font-size": "20px"}, 
+            "nav-link": {"font-size": "18px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+            "nav-link-selected": {"background-color": "green"},
+        }
+    )
+    
+    if selected == "personal_info":
         st.subheader("Personal Info")
         def form():
             with st.form(key="Information Form"):
@@ -44,17 +51,12 @@ def app():
         form()
             
             
-        #if st.button("Subscription Details"): #creating a button with a hyperlink
-        #    js = "window.open('https://www.canurta.com/')"
-        #    html = '<img src onerror="{}">'.format(js)
-        #    div = Div(text=html)
-        #    st.bokeh_chart(div) 
-        st.write("[Subscription Details >](https://www.canurta.com/)")
+        col1, col2, col3 = st.columns(3) #putting an image in centre
+        col2.image("profile_page_pic2.png") 
 
 
-    with share_results: 
+    if selected == "share_results": 
         st.subheader("My Physician")
-        #st.button("Send Report to My Doctor")
         def physician_form():
             with st.form(key="Physician Form"):
                 doctor_name = st.text_input("Doctor's Name: ")
@@ -64,17 +66,33 @@ def app():
                    st.success("Successfully submitted!") 
         physician_form()
         #st.write("[Connect with my doctor >](https://mail.yahoo.com/)")
-        st.write("[Connect to Fullscript >](https://fullscript.com/)")
+        st.markdown(
+            """<a style='display: block; text-align: center;' href="https://fullscript.com/">Connect to Fullscript</a>
+            """, 
+            unsafe_allow_html=True
+            )
         
-        #if st.button("Connect to Fullscript"): #creating a button with a hyperlink
-        #    js = "window.open('https://fullscript.com/')"
-        #    html = '<img src onerror="{}">'.format(js)
-        #    div = Div(text=html)
-        #    st.bokeh_chart(div)
+        col1, col2, col3 = st.columns(3) #putting an image in centre
+        col2.image("profile_page_pic3.png")
+        
+    if selected == "Subsctiption Details":
+        st.markdown(
+            """<a style='display: block; text-align: center;' href="https://www.canurta.com/">Subscription Details</a>
+            """, 
+            unsafe_allow_html=True
+            )
 
-        text_col, image_col = st.columns(2)
-        image_col.image("images/share_symbol.png") #putting an image in almost centre of page
+        col1, col2, col3 = st.columns(3) #putting an image in centre
+        col2.image("profile_page_pic4.png")
 
+    #these next few line hide the hamburger bar at top and the "run with stremlit" text at bottom of page
+    hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        footer {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
         

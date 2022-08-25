@@ -22,4 +22,5 @@ curses
 tarfile
 tensorflow
 sqlite3
+requests
 

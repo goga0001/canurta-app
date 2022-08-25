@@ -18,26 +18,6 @@ def app():
         html = '<img src onerror="{}">'.format(js)
         div = Div(text=html)
         st.bokeh_chart(div)
-########GAUKHAR################
-#######
-lang = pd.read_json('canurta_json.json')
-
-with st.expander(" Choose your filters"):
-      list= df.columns[1:8].tolist()
-      choice= st.multiselect("Pick your biomarker", list[0:8])
-      start = st.date_input("Start", value=pd.to_datetime("2022-01-01"))
-      end = st.date_input("End", value=pd.to_datetime("2022-03-31"))
-
-data=dfx_1[choice]
-st.text("A close look into the data")
-df = import_json('canurta_dashboard.json')
-fig1= px.line(data, x=df['date'],y=df.columns[:])
-fig1.update_yaxes(title_text='value')
-fig1.update_xaxes(title_text='date')
-st.plotly_chart(fig1, use_container_width=True)
-
-
-#y=df['user_id'].values
 
 
 ###lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_l13zwx3i.json")
@@ -62,66 +42,21 @@ def app():
     image_col.image("share_symbol.png")
     st.button("Send Report to My Doctor")
 
-    if st.button("Connect to Fullscript"):
-        js = "window.open('https://fullscript.com/')"
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
 
 "trail","crp","il6","tgfb","tgfa","il8","ip10","rhr","calories","sleep","skin_temp"	 
 
 
 
+##########BUTTON########
 
-###################### Gurkamal #####################################
-#####################################################################
-
-###################### Changing dataframe datatypes #################
-st.title("💬 Trends")
-def import_json(json_file):
-    df = pd.read_json(json_file)
-    df =df.T
-    df.iloc[:, 1:8] = df.iloc[:, 1:8].astype('float')
-    df.iloc[:, 8:10] = df.iloc[:, 8:10].astype('int')
-    df['skin_temp'] = df['skin_temp'].astype('float')
-    df.iloc[:, 12:15] = df.iloc[:, 12:15].astype('int')
-    df['date'] = df['date'].astype('datetime64')
-
-    return df
-
-# import json as df
-df = import_json('canurta_dashboard.json')
-
-#subset data into biomarkers with similar ranges
-dfx = df.iloc[:,0:8]
-dfx_1 = dfx[df['user_id'] == 227722]
-df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
-df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
-
-import plotly.express as px
-fig = px.line(dfx_1, x='date', y=df.columns[1:8])
-
-st.plotly_chart(fig, use_container_width=True)
-##########
-
-with  st.button("Get your product here"): 
-            js = "window.open('https://www.canurta.com/')"
-            html = '<img src onerror="{}">'.format(js)
-            div = Div(text=html)
-            st.bokeh_chart(div)
+if st.button("Connect to Fullscript"):
+        js = "window.open('https://fullscript.com/')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
 ########Requirements
 
-bokeh
-bokeh.models.widgets.markups.Markup
-div
-bokeh==2.4.3
-BOKEH_DEV
-pythonopencv-python
-###############
-change sign in button to image
-
-figma
 
 
 ###
@@ -139,3 +74,44 @@ import matplotlib.pyplot as plt
     
 
     return plot_diagnostics()
+#########ГАУХАР########
+def app():
+    a2, a3 = st.columns(2)
+    with a2:
+     st.title('Data')
+    with a3:
+     button= st.button("Share results with your doctor")
+     if button:
+        js = "window.open('https://www.canurta.com/')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
+
+
+
+    lang = pd.read_excel('Book1.xlsx')
+
+  
+    list= lang.columns[1:8].tolist()
+    choice= list
+    groupby_column2 = st.multiselect(
+        'What would you like to analyse?',
+        ('trail', 'crp', 'il6', "tgfb",	"tgfa",	"il8","ip10")
+    )
+    data=lang[choice]
+    st.text("A close look into the data")
+     
+
+    fig2 = px.line(
+        data,
+        x=lang['date'],
+        y=groupby_column2)
+    fig2.update_xaxes(title_text='Date')
+
+    st.plotly_chart(fig2,use_container_width=True)
+
+    ######mood Tracker
+    with st.form(key="daily_tracker"):
+                mood_slider = st.slider("Daily Mood Tracker", min_value=0, max_value=10, value=5, step=1)
+                pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
+                submit = st.form_submit_button(label="Submit")

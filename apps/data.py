@@ -9,41 +9,51 @@ from apps import home, data, model
 
 
 def app():
-    a2, a3 = st.columns(2)
-    with a2:
-     st.title('Data')
-    with a3:
-     button= st.button("Share results with your doctor")
-     if button:
-        js = "window.open('https://www.canurta.com/')"
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
+    st.title('Data')
+    
+    def import_json(json_file):
+        df = pd.read_json(json_file)
+        df =df.T
+        df.iloc[:, 1:8] = df.iloc[:, 1:8].astype('float')
+        df.iloc[:, 8:10] = df.iloc[:, 8:10].astype('int')
+        df['skin_temp'] = df['skin_temp'].astype('float')
+        df.iloc[:, 12:15] = df.iloc[:, 12:15].astype('int')
+        df['date'] = df['date'].astype('datetime64')
 
+        return df
 
+# import json as df
+    df = import_json('canurta_dashboard.json')
+    df_biomarkers = df[df['user_id'] == 227722].iloc[:,0:8]
 
-    lang = pd.read_excel('Book1.xlsx')
+#subset data into biomarkers with similar ranges
+# dfx = df[df['user_id'] == 227722].iloc[:,0:8]
+# df_b1 = df[df['user_id'] == 227722].iloc[:,[0,1,5,7]]
+# df_b2 = df[df['user_id'] == 227722].iloc[:,[0,4,6]]
+
+#st.write(df.head(5))
 
   
-    list= lang.columns[1:8].tolist()
-    choice= list
+    marker_list = df_biomarkers.columns[1:8].tolist()
+    choice = marker_list
     groupby_column2 = st.multiselect(
         'What would you like to analyse?',
         ('trail', 'crp', 'il6', "tgfb",	"tgfa",	"il8","ip10")
     )
-    data=lang[choice]
+    data=df_biomarkers[choice]
     st.text("A close look into the data")
      
 
     fig2 = px.line(
         data,
-        x=lang['date'],
+        x=df_biomarkers['date'],
         y=groupby_column2)
     fig2.update_xaxes(title_text='Date')
 
     st.plotly_chart(fig2,use_container_width=True)
 
    #####SECOND GRAPH#######         FINISHED
+    lang = pd.read_excel('Book1.xlsx')
     st.text("A close look into the data")
     list= lang.columns[8:15].tolist()
     choice1= list
@@ -70,7 +80,4 @@ def app():
 
 
         ############HEATMAP########     
-    with st.form(key="daily_tracker"):
-        mood_slider = st.slider("Daily Mood Tracker", min_value=0, max_value=10, value=5, step=1)
-        pain_slider = st.slider("Daily Pain Tracker", min_value=0, max_value=10, value=5, step=1)
-        submit = st.form_submit_button(label="Submit")
+    

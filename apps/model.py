@@ -32,15 +32,7 @@ def app():
                 weight = st.text_input("Weight: ")
                 submission = st.form_submit_button(label="Submit")
                 if submission == True:
-                    addData(name,age,height,weight)
-    
-    
-        def addData(a,b,c,d):
-            cur.execute("""CREATE TABLE IF NOT EXISTS personal_form(NAME TEXT(50), AGE TEXT(50), HEIGHT TEXT(50), WEIGHT TEXT(50));""")
-            cur.execute("INSERT INTO personal_form VALUES (?,?,?,?)", (a,b,c,d))
-            conn.commit()
-            conn.close()
-            st.success("Successfully submitted!")
+                    st.success("Successfully submitted!") 
         form()
             
             

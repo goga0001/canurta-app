@@ -13,16 +13,7 @@ def load_lottiefile(filepath: str):
      return json.load(f)
 lottie_coding = load_lottiefile("images/lottie.json")
 #######STYLE CSS#######
-hide_menu= """
-<style>
-#MainMenu {
-     visibility: hidden;
-}
-#div.css-qri22k.egzxvld4 {
-     visibility: hidden;
-}
-<style>
-"""
+
 side_bar="""
 <style>
 #stHorizontalBlock{
@@ -88,7 +79,7 @@ class MultiApp:
        
 
         st.sidebar.image("images/canurta_logo.png", use_column_width=True, width=100)
-        st.markdown(hide_menu, unsafe_allow_html= True)
+        
         st.markdown(side_bar, unsafe_allow_html= True)
         st.markdown(dashboard, unsafe_allow_html= True)
 

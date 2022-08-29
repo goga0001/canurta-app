@@ -45,7 +45,7 @@ with open('src/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
  
 # Data
-df= pd.read_csv('https://raw.githubusercontent.com/goga0001/canurta/main/Untitled%20spreadsheet%20-%20Sheet1.csv')
+
 
 #load assets=add empty space
 def space(num_lines=1):

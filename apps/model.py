@@ -1,8 +1,8 @@
 import streamlit as st
 #from bokeh.models.widgets import Div
-import sqlite3
-conn = sqlite3.connect("personal_data.db", check_same_thread=False)
-cur = conn.cursor()
+#import sqlite3
+#conn = sqlite3.connect("personal_data.db", check_same_thread=False)
+#cur = conn.cursor()
 #st.set_page_config(page_title="My Profile", page_icon=":memo:", layout="wide")
 
 def app():
